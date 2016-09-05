@@ -1,0 +1,51 @@
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+           <button ng-click="cancel_btn();" class="close ng-scope" type="button">
+               <i style="margin:10px;color:blue;" class="fa fa-times-circle-o"></i>
+           </button>
+            <div class="panel-heading">
+                Insert Question
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form role="form" name="ques_form">
+                            <div class="form-group">
+                                <label>Title</label> 
+                                <input class="form-control" name="title" ng-model="ques.title" placeholder="Enter text" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Question</label> 
+                                <textarea class="form-control" name="quesdesc" ng-model="ques.quesdesc" rows="3" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Select Category</label>
+                                <select class="form-control" ng-model="ques.selectedcat">
+									<option value="">Choose Category</option>
+                                    <option ng-selected="{{x.cid == ques.selectedcat}}" ng-repeat="x in catlist" value = "{{ x.cid }}">{{ x.title }}</option>
+                                </select>
+                            </div>							
+                            <div class="form-group">
+                                <label>Choose Option : </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="optiontype" ng-model="ques.optiontype" value="H">Hard
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="optiontype" ng-model="ques.optiontype" value="E">Easy
+                                </label>
+                            </div>
+                            <button type="submit" ng-click="process_question(ques);" class="btn btn-default" ng-disabled="ques_form.$invalid">Submit Button</button>
+                            <button type="reset" class="btn btn-default">Reset Button</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.row (nested) -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

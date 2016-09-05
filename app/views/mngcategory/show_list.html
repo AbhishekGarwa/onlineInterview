@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Manage Categories</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="col-md-2">PageSize:
+   <select ng-model="entryLimit" name="entryLimit" ng-change="catpagesize()" class="form-control">
+     <option>5</option>
+     <option>10</option>
+     <option>20</option>
+     <option>50</option>
+     <option>100</option>
+   </select>
+</div>
+<div class="form-group input-group col-lg-3 pull-right">
+    <input type="text" class="form-control"  placeholder="Filter category list ..." ng-model="filterCategory" ng-change="catsrchFilter();"  autocomplete="off">
+    <span class="input-group-btn">
+        <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+    </span>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Manage Categories
+                <button ng-click="addcategory(category);" class="btn btn-danger fa fa-plus ng-scope pull-right" type="button">&nbsp;Add New Category</button>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="dataTable_wrapper">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>Title&nbsp;<a ng-click="category_sort('title');"><i class="glyphicon glyphicon-sort"></i></a></th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="odd gradeX" ng-repeat="x in categorylist">
+                                <td>{{x.title}}</td>
+                                <td class="center"><div class="btn-group"><button ng-click="addcategory(x);" class="btn btn-default fa fa-edit" type="button"></button><button ng-click="deleteCategory(x);" class="btn btn-danger fa fa-trash-o" type="button"></button>
+                                </div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
